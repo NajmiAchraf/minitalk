@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 14:41:34 by anajmi            #+#    #+#             */
-/*   Updated: 2022/02/17 17:31:09 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/02/17 18:59:44 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	ft_receive(int sig)
 	if (sig == SIGUSR2)
 		push += bin;
 	idx += 1;
-	bin /= 2;
+	bin *= 0.5;
 	if (idx == 8)
 	{
 		ft_putchar(push);
@@ -36,7 +36,7 @@ static void	ft_receive(int sig)
 	}
 }
 
-int	main(int ac, char *av[])
+int	main(void)
 {
 	ft_putstr("pid : ");
 	ft_putnbr(getpid());

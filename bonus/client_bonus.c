@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 14:41:34 by anajmi            #+#    #+#             */
-/*   Updated: 2022/02/17 17:24:52 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/02/17 18:39:42 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,15 @@ static void	ft_send(int pid, char c)
 	}
 }
 
+static void	quit(int i)
+{
+	if (i == 1)
+		ft_putstr("Incorrect type of pid must be integer\n");
+	else if (i == 2)
+		ft_putstr("Incorrect Arguments ./EXE [INT:pid] [STR:message]\n");
+	exit(0);
+}
+
 int	main(int ac, char *av[])
 {
 	int	i;
@@ -38,10 +47,7 @@ int	main(int ac, char *av[])
 		while (av[1][++i])
 		{
 			if (!('0' <= av[1][i] && av[1][i] <= '9'))
-			{
-				ft_putstr("Incorrect type of pid must be integer\n");
-				exit(0);
-			}
+				quit(1);
 		}
 		pid = ft_atoi(av[1]);
 		i = -1;
@@ -51,6 +57,6 @@ int	main(int ac, char *av[])
 		ft_send(pid, '\n');
 	}
 	else
-		ft_putstr("Incorrect Arguments ./EXE [INT:pid] [STR:message]\n");
+		quit(2);
 	return (0);
 }
