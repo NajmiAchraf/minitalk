@@ -6,7 +6,7 @@
 #    By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/17 15:58:39 by anajmi            #+#    #+#              #
-#    Updated: 2022/02/17 17:07:22 by anajmi           ###   ########.fr        #
+#    Updated: 2022/02/17 21:03:23 by anajmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ CFLAGS = -Wall -Werror -Wextra
 
 all : $(NAME)
 
-$(NAME) : $(OBJ)
+$(NAME) : $(OBJ) $(SRCLIENT) $(SRSERVER)
 	gcc $(SRCLIENT) $(OBJ) -o $(CLIENT)
 	gcc $(SRSERVER) $(OBJ) -o $(SERVER)
 
@@ -53,7 +53,7 @@ re : fclean all
 
 bonus : $(BNAME) 
 
-$(BNAME) : $(OBJ)
+$(BNAME) : $(OBJ) $(SRBCLIENT) $(SRBSERVER)
 	gcc $(SRBCLIENT) $(OBJ) -o $(BCLIENT)
 	gcc $(SRBSERVER) $(OBJ) -o $(BSERVER)
 
